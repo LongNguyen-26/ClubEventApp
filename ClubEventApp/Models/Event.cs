@@ -36,8 +36,7 @@ namespace ClubEventApp.Models
         public DateTime RegistrationDeadline { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Status { get; set; } // Có thể cân nhắc dùng Enum (vd: EventStatus) thay vì string
+        public EventStatus Status { get; set; } // Có thể cân nhắc dùng Enum (vd: EventStatus) thay vì string
 
         [Required]
         public string CreatorID { get; set; }

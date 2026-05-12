@@ -5,14 +5,8 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace ClubEventApp.Models
 {
-    public abstract class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        public string Id { get; set; }
-        //public string FullName { get; set; }
-        public string Email { get; set; }
-
-        public abstract void Login();
-
         [Required]
         [StringLength(100)]
         public string FullName { get; set; }

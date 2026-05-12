@@ -13,8 +13,7 @@ namespace ClubEventApp.Models
         public DateTime SubmissionTime { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Status { get; set; }
+        public ApplicationStatus Status { get; set; }
 
         [Required]
         public string UserID { get; set; }
