@@ -52,7 +52,23 @@ namespace ClubEventApp.BLL.Services
                 Location = e.Location,
                 StartTime = e.StartTime,
                 EndTime = e.EndTime,
-                AvailableSlots = e.AvailableSlots
+                AvailableSlots = e.AvailableSlots,
+                Status = e.Status.ToString()
+            }).ToList();
+        }
+
+        public async Task<List<EventSummaryViewModel>> GetAllEventsAsync()
+        {
+            var events = await _eventRepo.GetAllEventsAsync();
+            return events.Select(e => new EventSummaryViewModel
+            {
+                EventID = e.EventID,
+                EventName = e.EventName,
+                Location = e.Location,
+                StartTime = e.StartTime,
+                EndTime = e.EndTime,
+                AvailableSlots = e.AvailableSlots,
+                Status = e.Status.ToString()
             }).ToList();
         }
     }

@@ -17,5 +17,9 @@ namespace ClubEventApp.DAL.Repositories
                 .Where(e => e.Status == EventStatus.Published)
                 .OrderBy(e => e.StartTime)
                 .ToListAsync();
+        public async Task<List<Event>> GetAllEventsAsync() =>
+            await _context.Events
+                .OrderByDescending(e => e.StartTime)
+                .ToListAsync();
     }
 }

@@ -8,5 +8,6 @@ namespace ClubEventApp.DAL.IRepositories
         Task AddAsync(Event evt);
         Task SaveChangesAsync();
         Task<List<Event>> GetPublishedEventsAsync();
+        Task<List<Event>> GetAllEventsAsync();
     }
 }

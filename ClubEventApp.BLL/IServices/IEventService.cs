@@ -8,5 +8,6 @@ namespace ClubEventApp.BLL.IServices
         Task<(bool Success, string ErrorMessage)> CreateEventAsync(
             CreateEventViewModel model, string creatorId);
         Task<List<EventSummaryViewModel>> GetPublishedEventsAsync();
+        Task<List<EventSummaryViewModel>> GetAllEventsAsync();
     }
 }

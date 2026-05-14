@@ -14,7 +14,23 @@ namespace ClubEventApp.Controllers
         public EventController(IEventService eventService) => _eventService = eventService;
 
         [HttpGet]
-        public IActionResult Create() => View(new CreateEventViewModel());
+        public async Task<IActionResult> Index()
+        {
+            var events = await _eventService.GetAllEventsAsync();
+            return View(events);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var today = DateTime.Today;
+            return View(new CreateEventViewModel
+            {
+                StartTime = today,
+                EndTime = today.AddDays(1),
+                RegistrationDeadline = today
+            });
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

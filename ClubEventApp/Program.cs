@@ -58,7 +58,8 @@ using (var scope = app.Services.CreateScope())
             {
                 UserName = adminEmail,
                 Email = adminEmail,
-                FullName = "Ban Điều Hành"
+                FullName = "Ban Điều Hành",
+                StudentID = "ADMIN001" // <-- Thêm dòng này để fix lỗi
             };
             // Lưu ý: Đảm bảo mật khẩu đáp ứng đủ độ khó của Identity (chữ hoa, chữ thường, số, ký tự đặc biệt)
             await userManager.CreateAsync(admin, "Admin@123");

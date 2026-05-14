@@ -1,10 +1,13 @@
-﻿@model List<ClubEventApp.DTO.EventSummaryViewModel>
+@model List<ClubEventApp.DTO.EventSummaryViewModel>
 @{
-    ViewData["Title"] = "Trang chủ";
+    ViewData["Title"] = "Quản lý sự kiện";
 }
 
 <div class="container mt-4">
-    <h2 class="mb-3">Sự kiện đang mở đăng ký</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Danh sách sự kiện</h2>
+        <a asp-action="Create" class="btn btn-primary">Tạo sự kiện</a>
+    </div>
 
     @if (TempData["SuccessMessage"] is string successMessage)
     {
@@ -13,7 +16,7 @@
 
     @if (Model == null || Model.Count == 0)
     {
-        <div class="alert alert-info">Hiện chưa có sự kiện nào được công bố.</div>
+        <div class="alert alert-info">Chưa có sự kiện nào.</div>
     }
     else
     {
@@ -24,6 +27,7 @@
                         <th>Tên sự kiện</th>
                         <th>Địa điểm</th>
                         <th>Thời gian</th>
+                        <th>Trạng thái</th>
                         <th>Chỗ trống</th>
                     </tr>
                 </thead>
@@ -34,6 +38,7 @@
                             <td>@evt.EventName</td>
                             <td>@evt.Location</td>
                             <td>@evt.StartTime.ToString("dd/MM/yyyy HH:mm") - @evt.EndTime.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@evt.Status</td>
                             <td>@evt.AvailableSlots</td>
                         </tr>
                     }
