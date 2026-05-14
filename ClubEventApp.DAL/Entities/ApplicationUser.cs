@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace ClubEventApp.Models
+namespace ClubEventApp.DAL.Entities
 {
     public class ApplicationUser : IdentityUser
     {

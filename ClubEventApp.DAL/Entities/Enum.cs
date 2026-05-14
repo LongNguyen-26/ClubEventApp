@@ -1,4 +1,4 @@
-﻿namespace ClubEventApp.Models
+﻿namespace ClubEventApp.DAL.Entities
 {
     public enum EventStatus
     {

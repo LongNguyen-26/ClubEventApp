@@ -4,10 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace ClubEventApp.Models
+namespace ClubEventApp.DAL.Entities
 {
     public class Event
     {
+        // This means Event class has to be instruced first, so that the Application class can reference it.
+        public Event()
+        {
+            Applications = new HashSet<Application>();
+        }
+
         [Key]
         public string EventID { get; set; }
 
@@ -36,7 +42,7 @@ namespace ClubEventApp.Models
         public DateTime RegistrationDeadline { get; set; }
 
         [Required]
-        public EventStatus Status { get; set; } // Có thể cân nhắc dùng Enum (vd: EventStatus) thay vì string
+        public EventStatus Status { get; set; }
 
         [Required]
         public string CreatorID { get; set; }
@@ -44,6 +50,7 @@ namespace ClubEventApp.Models
         [ForeignKey("CreatorID")]
         public virtual ApplicationUser Creator { get; set; }
 
+        // It means that one event can have many applications, and each application is associated with one event. The Applications property in the Event class represents the collection of applications that are linked to that specific event.
         public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
     }
 }

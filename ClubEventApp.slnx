@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="ClubEventApp/ClubEventApp.csproj" />
+  <Project Path="ClubEventApp.BLL/ClubEventApp.BLL.csproj" Id="9ae3dca3-e8ad-4c66-a977-6de5db0042cb" />
+  <Project Path="ClubEventApp.DAL/ClubEventApp.DAL.csproj" Id="65a71cf3-b2ef-4bfe-8d6c-4304997ae07c" />
+  <Project Path="ClubEventApp.DTO/ClubEventApp.DTO.csproj" Id="3d7f246b-bba6-4799-beb8-928095bc7d04" />
+  <Project Path="ClubEventApp/ClubEventApp.Web.csproj" />
 </Solution>

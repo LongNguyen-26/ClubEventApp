@@ -1,7 +1,24 @@
+using ClubEventApp.Models;
+using Microsoft.AspNetCore.Identity;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+//// Add services to the container.
+//builder.Services.AddControllersWithViews();
+
+//// 1. Thêm DbContext (Giả sử bạn đặt tên là ApplicationDbContext)
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//// 2. Thêm Identity kèm cấu hình Role
+//builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+//    // Tùy chọn password, lockout,...
+//    options.SignIn.RequireConfirmedAccount = false;
+//})
+//.AddEntityFrameworkStores<ApplicationDbContext>()
+//.AddDefaultTokenProviders();
+
+//// (Lưu ý: Bạn cũng cần thêm app.UseAuthentication(); trước app.UseAuthorization(); ở pipeline bên dưới)
 
 var app = builder.Build();
 
