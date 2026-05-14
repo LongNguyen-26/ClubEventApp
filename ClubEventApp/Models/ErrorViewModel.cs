@@ -1,4 +1,4 @@
-namespace ClubEventApp.Models
+﻿namespace ClubEventApp.Web.Models
 {
     public class ErrorViewModel
     {

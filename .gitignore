@@ -480,3 +480,9 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# User's files
+*.docx
+EventCreationWorkflow.txt
+merged_source_code.txt
+structure.txt

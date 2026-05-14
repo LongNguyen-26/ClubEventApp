@@ -1,4 +1,5 @@
-using ClubEventApp.Models;
+using ClubEventApp.BLL.IServices;
+using ClubEventApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,9 +7,17 @@ namespace ClubEventApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IEventService _eventService;
+
+        public HomeController(IEventService eventService)
         {
-            return View();
+            _eventService = eventService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var events = await _eventService.GetPublishedEventsAsync();
+            return View(events);
         }
 
         public IActionResult Privacy()
