@@ -1,10 +1,14 @@
 using ClubEventApp.Models;
 using Microsoft.AspNetCore.Identity;
+using ClubEventApp.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//// Add services to the container.
-//builder.Services.AddControllersWithViews();
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //// 1. Thêm DbContext (Giả sử bạn đặt tên là ApplicationDbContext)
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
